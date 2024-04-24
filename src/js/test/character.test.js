@@ -1,4 +1,4 @@
-import Character, { paramsTyp } from '../class/character';
+import Character, { paramsTyp } from '../class/character.js';
 
 // 01 Проверка Ошибок при вводе имени:
 test.each([

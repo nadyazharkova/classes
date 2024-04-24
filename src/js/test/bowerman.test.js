@@ -1,5 +1,5 @@
-import Bowerman from '../bowerman.js';
-import { paramsTyp } from '../character.js';
+import Bowerman from '../class/bowerman.js';
+import { paramsTyp } from '../class/character.js';
 
 // class/Bowerman: 01 Проверка наличия класса в словаре paramsTyp:
 test('class/Bowerman: 01 Проверка наличия записей в словаре paramsTyp', () => {

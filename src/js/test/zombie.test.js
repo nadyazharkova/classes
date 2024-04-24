@@ -1,5 +1,5 @@
-import Zombie from '../zombie.js';
-import { paramsTyp } from '../character.js';
+import Zombie from '../class/zombie.js';
+import { paramsTyp } from '../class/character.js';
 
 // class/Zombie: 01 Проверка наличия класса в словаре paramsTyp:
 test('class/Zombie: 01 Проверка наличия записей в словаре paramsTyp', () => {

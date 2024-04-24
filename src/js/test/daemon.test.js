@@ -1,5 +1,5 @@
-import Daemon from '../daemon.js';
-import { paramsTyp } from '../character.js';
+import Daemon from '../class/daemon.js';
+import { paramsTyp } from '../class/character.js';
 
 // class/Daemon: 01 Проверка наличия класса в словаре paramsTyp:
 test('class/Daemon: 01 Проверка наличия записей в словаре paramsTyp', () => {

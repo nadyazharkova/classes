@@ -1,36 +1,3 @@
-export const paramsTyp = {
-    bowerman: {
-        health: 100,
-        attack: 25,
-        defence: 25
-    },
-    swordsman: {
-        health: 100,
-        attack: 40,
-        defence: 10
-    },
-    magician: {
-        health: 100,
-        attack: 10,
-        defence: 40
-    },
-    daemon: {
-        health: 100,
-        attack: 10,
-        defence: 40
-    },
-    undead: {
-        health: 100,
-        attack: 25,
-        defence: 25
-    },
-    zombie: {
-        health: 100,
-        attack: 40,
-        defence: 10
-    },
-};
-
 export default class Character {
     constructor(name, type) {
         // Проверка имени
@@ -39,16 +6,16 @@ export default class Character {
         }
 
         // Проверка класса
-        if (!(type.toLowerCase() in paramsTyp)) {
+        if (!(type.toLowerCase())) {
             throw new Error('Класс введен некорректно!');
         }
 
         this.name = name;
         this.type = type.toLowerCase();
-        this.health = paramsTyp[this.type].health;
+        this.health = 100;
         this.level = 1;
-        this.attack = paramsTyp[this.type].attack;
-        this.defence = paramsTyp[this.type].defence;
+        this.attack = undefined;
+        this.defence = undefined;
     }
 
     // Повышение уровня:

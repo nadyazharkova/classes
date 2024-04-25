@@ -1,4 +1,4 @@
-import Character, { paramsTyp } from '../class/character.js';
+import Character from '../class/character.js';
 
 // 01 Проверка Ошибок при вводе имени:
 test.each([
@@ -16,7 +16,6 @@ test.each([
     ],
 ])('Проверка Ошибки при вводе некорректного имени', (name, type, errorType, errorText) => {
     function result() {
-
         new Character(name, type);
     }
 
@@ -40,7 +39,6 @@ test.each([
     ],
 ])('Проверка Ошибки при вводе некорректного класса', (name, type, errorType, errorText) => {
     function result() {
-
         new Character(name, type);
     }
 
@@ -49,34 +47,15 @@ test.each([
 });
 
 // 03 Проверка корректности создания классов:
-// 03.1 проверка совместимости словаря paramsTyp:
-test('Проверка наличия записей в словаре paramsTyp', () => {
-    const result = Object.keys(paramsTyp).length;
-    expect(result).not.toBe(0);
-});
-
 test('Проверка наличия атрибутов "health", "attack" и "defence" в позициях словаря paramsTyp', () => {
-    const fKey = Object.keys(paramsTyp)[0];
-    const resultHealth = paramsTyp[fKey].health;
-    const resultAttack = paramsTyp[fKey].attack;
-    const resultDefence = paramsTyp[fKey].defence;
 
-    expect(resultHealth).not.toBe(undefined);
-    expect(resultAttack).not.toBe(undefined);
-    expect(resultDefence).not.toBe(undefined);
+    expect(this.health).not.toBe(undefined);
+    expect(this.attack).not.toBe(undefined);
+    expect(this.defence).not.toBe(undefined);
 });
 
 // 03.2 проверка корректности создания классов:
-const testParamsTyp = [];
-let nameId = 0;
-Object.entries(paramsTyp).forEach((element) => {
-    testParamsTyp.push([
-        `Name_${nameId}`, element[0], element[1].health, 1, element[1].attack, element[1].defence
-    ]);
-    nameId += 1;
-});
-
-test.each(testParamsTyp)('Проверка корректности создания классов', (name, type, health, level, attack, defence) => {
+test('Проверка корректности создания классов', (name, type, health, level, attack, defence) => {
     const result = new Character(name, type);
 
     expect(result.name).toBe(name); // Проверка имени

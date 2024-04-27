@@ -2,14 +2,14 @@ import Character from '../class/character.js';
 
 test('Проверка Ошибки при вводе некорректного имени', () => {
     expect(() => {
-      const character = new Character('A', 'Bowman');
+        const character = new Character('A', 'Bowman');
     }).toThrow(new Error('Имя должно содержать от 2х до 10 символов!'));
 });
 
 test('Проверка Ошибки при вводе некорректного типа', () => {
     expect(() => {
         const character = new Character('Andrew', 'Ivan');
-      }).toThrow(new Error('Данный тип несуществует'));
+    }).toThrow(new Error('Данный тип несуществует'));
 });
 
 test('Проверка корректности создания классов', () => {
@@ -33,14 +33,14 @@ test('Проверка levelUp при health <= 0', () => {
         character.levelUp();
     }).toThrow(new Error('Нельзя повысить левел умершего'));
 });
-  
+
 test('Проверка damage при health > 0', () => {
     const character = new Character('Ivan', 'bowerman');
     character.defence = 25;
     character.damage(25);
     expect(character.health).toBe(81);
 });
-  
+
 test('Проверка levelUp при health > 0', () => {
     const character = new Character('Ivan', 'bowerman');
     character.health = 100;
@@ -54,12 +54,12 @@ test('Проверка levelUp при health > 0', () => {
         level: 2,
         attack: 30,
         defence: 30,
-      };
+    };
 
     character.levelUp();
     expect(character).toEqual(levelUpObj);
 });
-  
+
 test('Проверка damage при health <= 0', () => {
     const character = new Character('Ivan', 'bowerman');
     character.defence = 0;

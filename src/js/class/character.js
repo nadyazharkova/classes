@@ -1,7 +1,14 @@
 export default class Character {
     constructor(name, type) {
-        const typeOfCharacters = ['bowerman', 'swordsman', 'magician', 'daemon', 'undead', 'zombie'];
-        
+        const typeOfCharacters = [
+            'bowerman',
+            'swordsman',
+            'magician',
+            'daemon',
+            'undead',
+            'zombie'
+        ];
+
         // Проверка имени
         if ((name.length < 2) || (name.length > 10)) {
             throw new Error('Имя должно содержать от 2х до 10 символов!');
@@ -25,7 +32,7 @@ export default class Character {
         if (this.health <= 0) {
             throw new Error('Нельзя повысить левел умершего');
         }
-    
+
         this.level = this.level + 1;
         this.attack = this.attack * 1.2;
         this.defence = this.defence * 1.2;

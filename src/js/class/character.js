@@ -1,17 +1,19 @@
 export default class Character {
     constructor(name, type) {
+        const typeOfCharacters = ['bowerman', 'swordsman', 'magician', 'daemon', 'undead', 'zombie'];
+        
         // Проверка имени
         if ((name.length < 2) || (name.length > 10)) {
             throw new Error('Имя должно содержать от 2х до 10 символов!');
         }
 
         // Проверка класса
-        if (!(type.toLowerCase())) {
-            throw new Error('Класс введен некорректно!');
+        if (!typeOfCharacters.includes(type)) {
+            throw new Error('Данный тип несуществует');
         }
 
         this.name = name;
-        this.type = type.toLowerCase();
+        this.type = type;
         this.health = 100;
         this.level = 1;
         this.attack = undefined;
@@ -20,14 +22,14 @@ export default class Character {
 
     // Повышение уровня:
     levelUp() {
-        if (this.health > 0) {
-            this.level += 1;
-            this.attack = Math.round(this.attack * 1.2);
-            this.defence = Math.round(this.defence * 1.2);
-            this.health = 100;
-        } else {
+        if (this.health <= 0) {
             throw new Error('Нельзя повысить левел умершего');
         }
+    
+        this.level = this.level + 1;
+        this.attack = this.attack * 1.2;
+        this.defence = this.defence * 1.2;
+        this.health = 100;
     }
 
     // Расчет полученного урона
